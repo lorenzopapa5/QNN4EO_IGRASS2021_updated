@@ -59,7 +59,7 @@ We proposed several binary hybrid quantum classifiers for the EuroSAT dataset. T
 
 We update the IGRAS2021 code in order to work with more recent PyTorch libraries. Moreover, a Docker image is provided. (from [lorenzopapa5](https://github.com/lorenzopapa5))
 
-To execute a main file within a Docker container, use the following pseudocode to set up paths and options as needed:
+To execute a main file (no need to follow Installation procedure) within a Docker container, use the following pseudocode to set up paths and options as needed:
 
 ```bash
 docker run \
