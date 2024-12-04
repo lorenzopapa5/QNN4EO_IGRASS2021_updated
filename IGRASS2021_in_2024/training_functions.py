@@ -7,10 +7,6 @@ from models.non_quantum.CNN_orig import CNN_Classifier
 from models.quantum_quiskit.QCNN import QCNN_Classifier
 from models.non_quantum.NN4EO import NN4EO
 from models.quantum_quiskit.QNN4EO_orig import QNN4EO
-from models.non_quantum.ViT import ViT_Classifier
-from models.quantum_quiskit.QViT import QViT_Classifier
-from models.non_quantum.CNN_simple import SimpleConvNet
-from models.quantum_quiskit.QCNN_simple import SimpleQuantumConvNet
 
 def stardard_train(model_name, train_loader, val_loader, epochs, batch_size, img_shape, save_path, device):
 
@@ -22,30 +18,6 @@ def stardard_train(model_name, train_loader, val_loader, epochs, batch_size, img
         model = NN4EO().to(device)
     elif model_name == 'qnn4eo':
         model = QNN4EO().to(device)
-    elif model_name == 'cnn_d1':
-        model = SimpleConvNet(img_shape, num_blocks=1).to(device)
-    elif model_name == 'cnn_d2':
-        model = SimpleConvNet(img_shape, num_blocks=2).to(device)
-    elif model_name == 'cnn_d3':
-        model = SimpleConvNet(img_shape, num_blocks=3).to(device)
-    elif model_name == 'qcnn_d1':
-        model = SimpleQuantumConvNet(img_shape, num_blocks=1).to(device)
-    elif model_name == 'qcnn_d2':
-        model = SimpleQuantumConvNet(img_shape, num_blocks=2).to(device)
-    elif model_name == 'qcnn_d3':
-        model = SimpleQuantumConvNet(img_shape, num_blocks=3).to(device)
-    elif model_name == 'vit_d1':
-        model = ViT_Classifier(patch_size=16, embed_dim=32, num_layers=1, num_heads=2, mlp_dim=64).to(device)
-    elif model_name == 'qvit_d1':
-        model = QViT_Classifier(patch_size=16, embed_dim=32, num_layers=1, num_heads=2, mlp_dim=64).to(device)
-    elif model_name == 'vit_d2':
-        model = ViT_Classifier(patch_size=8, embed_dim=64, num_layers=2, num_heads=4, mlp_dim=128).to(device)
-    elif model_name == 'qvit_d2':
-        model = QViT_Classifier(patch_size=8, embed_dim=64, num_layers=2, num_heads=4, mlp_dim=128).to(device)
-    elif model_name == 'vit_d3':
-        model = ViT_Classifier(patch_size=4, embed_dim=128, num_layers=3, num_heads=8, mlp_dim=256).to(device)
-    elif model_name == 'qvit_d3':
-        model = QViT_Classifier(patch_size=4, embed_dim=128, num_layers=3, num_heads=8, mlp_dim=256).to(device)
     else:
         raise ValueError(f"Unknown model name: {model_name}. Please choose a valid model name.")
 
